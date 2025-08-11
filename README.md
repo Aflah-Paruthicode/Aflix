@@ -1,0 +1,4 @@
+# Aflix
+
+- Vite
+- Configured TailwindCss
