@@ -26,6 +26,21 @@ const Login = () => {
             <p className='text-[12px] text-[#a2a2a2de] mb-4'>This page is protected by Google reCAPTCHA to ensure you're not a bot.</p>
             <p className='text-[12px] text-[#396ccbde] underline'>Learn more.</p>
         </div>
+        <div className='bg-[#1a1a1a] w-full h-60 flex justify-center items-center text-[#c6c5c5fa]'>
+            <div className='w-1/2 '>
+            <h1 className='mb-5'>Questions? Call +91-9567-XXXX-37 (Toll-Free)</h1>
+            <div className='flex gap-44 mb-5 underline text-[13px]'>
+                <p>FAQ</p>
+                <p>Help Centre</p>
+                <p>Terms of Use</p>
+                <p>Privacy</p>
+            </div>
+            <div className='flex gap-[70px] underline'>
+                <p>Cookie Preferences</p>
+                <p>Corporate Information</p>
+            </div>
+            </div>
+        </div>
     </div>
   )
 }
