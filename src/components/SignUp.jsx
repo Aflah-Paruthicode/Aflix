@@ -2,9 +2,13 @@ import Header from './Header';
 import Slider  from 'react-slick'
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { reasonsToJoin, trendMovies } from '../utils/constants';
+import { FAQ, reasonsToJoin, trendMovies } from '../utils/constants';
+import { useState } from 'react';
+import FaqAccordion from './FaqAccordion';
 
 const SignUp = () => {
+
+    const [faqToggleIndex,setFaqToggleIndex] = useState(-1);
 
     const settings = {
     dots: false,
@@ -27,7 +31,7 @@ const SignUp = () => {
                 <p className='font-normal mb-3 text-[16.5px]'>Ready to watch? Enter your email to create or restart your membership.</p>
                 <form action="" className='flex justify-center items-center gap-2'>
                     <input className='bg-[#1a1a1ab6] py-2 px-8 rounded-sm border w-[450px] h-[55px] text-[#888888] font-semibold' placeholder='Email or mobile number' type="text" />
-                    <input className='bg-red-600 py-2 px-8 font-semibold text-[25px] text-white rounded-sm' value='Get Started  >' type="submit" />
+                    <input className='bg-red-600 py-2 px-8 font-semibold text-[25px] text-white rounded-sm' value='Get Started  〉' type="submit" />
                 </form>
             </div>
                         
@@ -78,11 +82,22 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
-            <div className='flex justify-center bg-black h-[430px]'>
+            <div className='flex justify-center bg-black'>
                 <div className='w-[1200px]  text-white bg-black'>
                     <h1 className='text-white text-[32px] font-bold mb-3 mt-2'>Frequently Asked Questions</h1>
-                    <div>
-                        
+                    <div className='w-full'>
+                        {
+                            FAQ.map((faq,index) => {
+                                return (
+                                    <FaqAccordion key={index}
+                                    faq={faq} 
+                                    faqToggle={faqToggleIndex==index ? true : false}
+                                    setFaqToggle={(num) => {
+                                        setFaqToggleIndex(num?num:index)
+                                    }} />
+                                )
+                            })
+                        }
                     </div>
                 </div>
             </div>
