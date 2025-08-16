@@ -101,6 +101,45 @@ const SignUp = () => {
                     </div>
                 </div>
             </div>
+            <div className='flex justify-center flex-col bg-black text-center py-16'>
+                <p className='font-medium text-[16.5px] mb-4 text-[#cacaca]'>Ready to watch? Enter your email to create or restart your membership.</p>
+                <form action="" className='flex justify-center items-center gap-2'>
+                    <input className='bg-[#1a1a1ab6] py-2 px-8 rounded-sm border w-[450px] h-[55px] text-[#888888] font-semibold' placeholder='Email or mobile number' type="text" />
+                    <input className='bg-red-600 py-2 px-8 font-semibold text-[25px] text-white rounded-sm' value='Get Started  〉' type="submit" />
+                </form>
+            </div>
+            <div className='flex justify-center flex-col bg-black text-center py-16'>
+                <div className='w-[1200px] mx-auto  text-[#adadad] font-medium text-[15px]'>
+                    <p className='text-start mb-10'>Questions? Call <span>+9195-6707-XXXX</span></p>
+                    <div className='flex justify-center gap-4 w-full'>
+                        <div className='w-3/4 text-start flex flex-col gap-2 underline'>
+                            <p>FAQ</p>
+                            <p>Investor Relations</p>
+                            <p>Privacy</p>
+                            <p>Speed Test</p>
+                        </div>
+                        <div className='w-3/4 text-start flex flex-col gap-2 underline'>
+                            <p>Help Centre</p>
+                            <p>Jobs</p>
+                            <p>Cookie Preferences</p>
+                            <p>Legal Notices</p>
+                        </div>
+                        <div className='w-3/4 text-start flex flex-col gap-2 underline'>
+                            <p>Account</p>
+                            <p>Ways to Watch</p>
+                            <p>Corporate Information</p>
+                            <p>Only on Netflix</p>
+                        </div>
+                        <div className='w-3/4 text-start flex flex-col gap-2 underline'>
+                            <p>Media Centre</p>
+                            <p>Terms of Use</p>
+                            <p>Contact Us</p>
+                        </div>
+                    </div>
+                        <p className='text-start my-7'>Netflix India</p>
+                        <p className='text-start text-[12px] text-[#999999]'>This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className='text-blue-500 underline font-normal'>Learn more.</span></p>
+                </div>
+            </div>
         </div>
   )
 }
