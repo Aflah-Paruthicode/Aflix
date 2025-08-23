@@ -13,7 +13,7 @@ const SignUp = () => {
     const settings = {
     dots: false,
     infinite: false,
-    speed: 500,
+    speed: 700,
     slidesToShow: 4.5,
     slidesToScroll: 4
   };
@@ -44,7 +44,7 @@ const SignUp = () => {
             after:absolute after:w-[120%] after:left-[-10%] after:overflow-hidden
             after:top-[4.5px] after:rounded-t-[50%] after:mx-auto after:h-[12.60rem] after:object-cover after:z-10" >
                 <div className='absolute top-[58px] left-[350px] z-20'>
-                    <h1 className='text-white text-[32px] font-bold'>Trending Now</h1>
+                    <h1 className='text-white text-[32px] font-bold z-40'>Trending Now</h1>
                 </div>
             </div>
 
