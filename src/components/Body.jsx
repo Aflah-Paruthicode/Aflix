@@ -11,7 +11,7 @@ const Body = () => {
     },
     {
         path : '/SignUp',
-        element : <SignUp />
+        element : <SignUp /> 
     },
     {
       path : '/browse',
