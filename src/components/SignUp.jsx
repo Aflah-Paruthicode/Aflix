@@ -1,12 +1,13 @@
-import Header from "./Header";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { FAQ, reasonsToJoin, trendMovies } from "../utils/constants";
 import { useState } from "react";
 import FaqAccordion from "./FaqAccordion";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
+  const navigate = useNavigate();
   const [faqToggleIndex, setFaqToggleIndex] = useState(-1);
 
   const settings = {
@@ -19,7 +20,31 @@ const SignUp = () => {
 
   return (
     <div className="w-full">
-      <Header />
+      <div className="absolute z-20 bg-gradient-to-b from-black w-full">
+        <div className="inline-flex w-full gap-24 justify-around items-center">
+          <img className="w-28 mt-4" src="./AflixLogo.png" alt="" />
+          <div className="mt-2">
+            <select
+              className="text-white mr-4 bg-[#0d0d0d78] border border-[#303030] rounded-sm py-1 px-4"
+              name=""
+              id=""
+            >
+              <option className="text-black bg-white" value="English">
+                English
+              </option>
+              <option className="text-black bg-white" value="Hindi">
+                Hindi
+              </option>
+            </select>
+            <button
+              onClick={() => navigate("/")}
+              className="py-1 px-4 bg-red-600 text-white font-semibold rounded-sm"
+            >
+              Sign in
+            </button>
+          </div>
+        </div>
+      </div>
       <div className=" brightness-[35%] h-[90vh] w-full">
         <img
           className="w-full h-[99vh] object-cover object-[2%_19%]"
@@ -38,7 +63,10 @@ const SignUp = () => {
         <p className="font-normal mb-3 text-[16.5px]">
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        <form onSubmit={(e) => e.preventDefault()} className="flex justify-center items-center gap-2">
+        <form
+          onSubmit={(e) => e.preventDefault()}
+          className="flex justify-center items-center gap-2"
+        >
           <input
             className="bg-[#1a1a1ab6] py-2 px-8 rounded-sm border w-[450px] h-[55px] text-[#888888] font-semibold"
             placeholder="Email or mobile number"
@@ -53,7 +81,7 @@ const SignUp = () => {
       </div>
 
       <div
-        class="relative bg-transparent h-[6.25rem] top-9 z-10 overflow-hidden
+        className="relative bg-transparent h-[6.25rem] top-9 z-10 overflow-hidden
             before:content-[''] before:left-[-10%] before:w-[120%] before:-z-10
             before:h-[12.80rem] before:absolute before:rounded-t-[100%] 
             before:[background:linear-gradient(to_right,rgba(33,13,22,1)_16%,rgba(184,40,105,1),rgba(229,9,20,1),rgba(184,40,105,1),rgba(33,13,22,1)_84%)]
@@ -91,9 +119,12 @@ const SignUp = () => {
             More reasons to join
           </h1>
           <div className="flex gap-4">
-            {reasonsToJoin.map((reason) => {
+            {reasonsToJoin.map((reason, indx) => {
               return (
-                <div className=" relative w-1/4 h-80 rounded-2xl py-9 px-6 bg-gradient-to-br from-[#653fad6c] to-[#1e001636]">
+                <div
+                  key={indx}
+                  className=" relative w-1/4 h-80 rounded-2xl py-9 px-6 bg-gradient-to-br from-[#653fad6c] to-[#1e001636]"
+                >
                   <h1 className="font-bold text-2xl mb-5">{reason.header}</h1>
                   <p className=" font-medium leading-5 text-[#ffffffb3]">
                     {reason.desc}

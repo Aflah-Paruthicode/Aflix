@@ -1,17 +1,35 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { checkInputs } from "../utils/validations";
+import { signInWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase-config";
 
 const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
-  const [err,setErr] = useState()
+  const [err, setErr] = useState();
+  const navigate = useNavigate();
 
-  function isValidCredentials () {
-     let message = checkInputs(email.current.value,password.current.value)
-     setErr(message)
-     console.log(message)
+  function isValidCredentials() {
+    let message = checkInputs(email.current.value, password.current.value);
+    setErr(message);
+
+    if (message) return;
+
+    signInWithEmailAndPassword(
+      auth,
+      email.current.value,
+      password.current.value
+    )
+      .then((userData) => {
+        const user = userData.user;
+        navigate('/browse')
+        console.log(user);
+      })
+      .catch((err) => {
+        setErr(err.code + "-" + err.message);
+      });
   }
 
   return (
@@ -34,14 +52,16 @@ const Login = () => {
             type="text"
           />
           <input
-          ref={password}
+            ref={password}
             className="bg-[#1a1a1ab6] w-full h-14 mb-4 rounded-sm border text-[#888888] p-2 font-semibold"
             placeholder="Password"
             type="text"
           />
-          {err && <p className="text-red-700 text-base py-3 font-semibold">{err}</p> }
+          {err && (
+            <p className="text-red-700 text-base py-3 font-semibold">{err}</p>
+          )}
           <input
-          onClick={isValidCredentials}
+            onClick={isValidCredentials}
             className="bg-red-700 w-full h-10 mb-4 font-semibold text-white rounded-sm"
             value="Sign In"
             type="submit"
