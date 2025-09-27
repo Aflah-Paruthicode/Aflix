@@ -93,3 +93,11 @@ export const FAQ = [
         answerline : `Kids profiles come with PIN-protected parental controls that let you restrict the maturity rating of content kids can watch and block specific titles you don’t want kids to see.`
     }
 ];
+
+export const API_OPTIONS = {
+  method: 'GET',
+  headers: {
+    accept: 'application/json',
+    Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`
+  }
+};
