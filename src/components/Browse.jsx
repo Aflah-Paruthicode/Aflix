@@ -15,7 +15,7 @@ const Browse = () => {
 
 
   return (
-    <div>Browse</div>
+    <div >Browse</div>
   )
 }
 
