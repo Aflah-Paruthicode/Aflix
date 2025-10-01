@@ -34,7 +34,7 @@ const Login = () => {
 
   return (
     <div className="w-full">
-      <Header />
+      <Header from={'login'} />
       <div className=" brightness-50 h-[90vh] w-full">
         <img
           className="w-full h-[90vh] object-cover object-top"

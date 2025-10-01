@@ -5,9 +5,11 @@ import { FAQ, reasonsToJoin, trendMovies } from "../utils/constants";
 import { useState } from "react";
 import FaqAccordion from "./FaqAccordion";
 import { useNavigate } from "react-router-dom";
+import Header from "./Header";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [email,setEmail] = useState('')
   const [faqToggleIndex, setFaqToggleIndex] = useState(-1);
 
   const settings = {
@@ -20,31 +22,11 @@ const SignUp = () => {
 
   return (
     <div className="w-full">
-      <div className="absolute z-20 bg-gradient-to-b from-black w-full">
-        <div className="inline-flex w-full gap-24 justify-around items-center">
-          <img className="w-28 mt-4" src="./AflixLogo.png" alt="" />
-          <div className="mt-2">
-            <select
-              className="text-white mr-4 bg-[#0d0d0d78] border border-[#303030] rounded-sm py-1 px-4"
-              name=""
-              id=""
-            >
-              <option className="text-black bg-white" value="English">
-                English
-              </option>
-              <option className="text-black bg-white" value="Hindi">
-                Hindi
-              </option>
-            </select>
-            <button
-              onClick={() => navigate("/")}
-              className="py-1 px-4 bg-red-600 text-white font-semibold rounded-sm"
-            >
-              Sign in
-            </button>
-          </div>
-        </div>
+
+      <div>
+        <Header from={'sign up'} />
       </div>
+      
       <div className=" brightness-[35%] h-[90vh] w-full">
         <img
           className="w-full h-[99vh] object-cover object-[2%_19%]"
@@ -70,12 +52,17 @@ const SignUp = () => {
           <input
             className="bg-[#1a1a1ab6] py-2 px-8 rounded-sm border w-[450px] h-[55px] text-[#888888] font-semibold"
             placeholder="Email or mobile number"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
             type="text"
           />
           <input
             className="bg-red-600 py-2 px-8 font-semibold text-[25px] text-white rounded-sm"
             value="Get Started  〉"
             type="submit"
+            onClick={() => {
+              navigate(`/register/${email}`)
+            }}
           />
         </form>
       </div>
