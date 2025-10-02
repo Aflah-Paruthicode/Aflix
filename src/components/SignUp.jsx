@@ -6,6 +6,7 @@ import { useState } from "react";
 import FaqAccordion from "./FaqAccordion";
 import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import { Logo } from "../utils/constants";
 
 const SignUp = () => {
   const navigate = useNavigate();

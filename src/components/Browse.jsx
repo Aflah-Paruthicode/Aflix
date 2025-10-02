@@ -1,13 +1,10 @@
-import React, { useEffect } from 'react'
-import useNowPlayingMovies from '../utils/useNowPlayingMovies'
+import React, { useEffect } from "react";
+import useNowPlayingMovies from "../utils/useNowPlayingMovies";
 
 const Browse = () => {
+  useNowPlayingMovies();
 
-  useNowPlayingMovies()
+  return <div>Browse</div>;
+};
 
-  return (
-    <div >Browse</div>
-  )
-}
-
-export default Browse
+export default Browse;

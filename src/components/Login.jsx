@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { checkInputs } from "../utils/validations";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase-config";
+import LoginFooter from "./LoginFooter";
 
 const Login = () => {
   const email = useRef(null);
@@ -24,7 +25,7 @@ const Login = () => {
     )
       .then((userData) => {
         const user = userData.user;
-        navigate('/browse')
+        navigate("/browse");
         console.log(user);
       })
       .catch((err) => {
@@ -34,7 +35,7 @@ const Login = () => {
 
   return (
     <div className="w-full">
-      <Header from={'login'} />
+      <Header from={"login"} />
       <div className=" brightness-50 h-[90vh] w-full">
         <img
           className="w-full h-[90vh] object-cover object-top"
@@ -91,21 +92,9 @@ const Login = () => {
         </p>
         <p className="text-[12px] text-[#396ccbde] underline">Learn more.</p>
       </div>
-      <div className="bg-[#1a1a1a] w-full h-60 flex justify-center items-center text-[#c6c5c5fa]">
-        <div className="w-1/2 ">
-          <h1 className="mb-5">Questions? Call +91-9567-XXXX-37 (Toll-Free)</h1>
-          <div className="flex gap-44 mb-5 underline text-[13px]">
-            <p>FAQ</p>
-            <p>Help Centre</p>
-            <p>Terms of Use</p>
-            <p>Privacy</p>
-          </div>
-          <div className="flex gap-[70px] underline">
-            <p>Cookie Preferences</p>
-            <p>Corporate Information</p>
-          </div>
-        </div>
-      </div>
+      <section>
+        <LoginFooter />
+      </section>
     </div>
   );
 };

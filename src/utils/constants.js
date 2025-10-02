@@ -101,3 +101,5 @@ export const API_OPTIONS = {
     Authorization: `Bearer ${import.meta.env.VITE_TMDB_API_TOKEN}`
   }
 };
+
+export const Logo = '/AflixLogo.png';
