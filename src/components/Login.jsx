@@ -1,19 +1,19 @@
 import React, { useRef, useState } from "react";
 import Header from "./Header";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { checkInputs } from "../utils/validations";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase-config";
 import LoginFooter from "./LoginFooter";
+import { LoginPageBgImg } from "../utils/constants";
 
 const Login = () => {
   const email = useRef(null);
   const password = useRef(null);
   const [err, setErr] = useState();
-  const navigate = useNavigate();
 
   function isValidCredentials() {
-    let message = checkInputs(email.current.value, password.current.value);
+    let message = checkInputs(email.current.value, password.current.value,null);
     setErr(message);
 
     if (message) return;
@@ -25,7 +25,6 @@ const Login = () => {
     )
       .then((userData) => {
         const user = userData.user;
-        navigate("/browse");
         console.log(user);
       })
       .catch((err) => {
@@ -39,7 +38,7 @@ const Login = () => {
       <div className=" brightness-50 h-[90vh] w-full">
         <img
           className="w-full h-[90vh] object-cover object-top"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/258d0f77-2241-4282-b613-8354a7675d1a/web/IN-en-20250721-TRIFECTA-perspective_cadc8408-df6e-4313-a05d-daa9dcac139f_large.jpg"
+          src={LoginPageBgImg}
           alt=""
         />
       </div>

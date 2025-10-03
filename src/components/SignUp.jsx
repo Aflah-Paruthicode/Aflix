@@ -1,16 +1,16 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { FAQ, reasonsToJoin, trendMovies } from "../utils/constants";
+import { FAQ, LoginPageBgImg, reasonsToJoin, trendMovies } from "../utils/constants";
 import { useState } from "react";
 import FaqAccordion from "./FaqAccordion";
-import { useNavigate } from "react-router-dom";
 import Header from "./Header";
+import { useNavigate } from "react-router-dom";
 
 const SignUp = () => {
-  const navigate = useNavigate();
   const [email,setEmail] = useState('')
   const [faqToggleIndex, setFaqToggleIndex] = useState(-1);
+  const navigate = useNavigate()
 
   const settings = {
     dots: false,
@@ -30,7 +30,7 @@ const SignUp = () => {
       <div className=" brightness-[35%] h-[90vh] w-full">
         <img
           className="w-full h-[99vh] object-cover object-[2%_19%]"
-          src="https://assets.nflxext.com/ffe/siteui/vlv3/258d0f77-2241-4282-b613-8354a7675d1a/web/IN-en-20250721-TRIFECTA-perspective_cadc8408-df6e-4313-a05d-daa9dcac139f_large.jpg"
+          src={LoginPageBgImg}
           alt=""
         />
       </div>

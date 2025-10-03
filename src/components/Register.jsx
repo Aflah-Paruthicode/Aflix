@@ -1,25 +1,31 @@
 import React, { useEffect, useRef, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import Header from "./Header";
 import LoginFooter from "./LoginFooter";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 import { auth } from "../utils/firebase-config";
 import { checkInputs } from "../utils/validations";
+import { addUser } from "../utils/userSlice";
+import { useDispatch } from "react-redux";
 
 const Register = () => {
   const { email } = useParams();
   const emailRef = useRef(email);
   const passwordRef = useRef(null);
-  const nameRef = useRef(null)
+  const nameRef = useRef(null);
   const [err, setErr] = useState();
-  const navigate = useNavigate()
+  const dispatch = useDispatch();
 
   useEffect(() => {
     if (email) emailRef.current.value = email;
   }, []);
 
   function isValidCredentials() {
-    let message = checkInputs(emailRef.current.value, passwordRef.current.value,nameRef.current.value);
+    let message = checkInputs(
+      emailRef.current.value,
+      passwordRef.current.value,
+      nameRef.current.value
+    );
     setErr(message);
 
     if (message) return;
@@ -31,7 +37,19 @@ const Register = () => {
     )
       .then((userData) => {
         const user = userData.user;
-        navigate("/browse");
+        updateProfile(user, {
+          displayName: nameRef.current.value,
+        })
+          .then(() => {
+            const { uid, email, displayName } = auth.currentUser;
+            dispatch(
+              addUser({ uid: uid, email: email, displayName: displayName })
+            );
+          })
+          .catch((error) => {
+            setErr(error.message);
+          });
+
         console.log(user);
       })
       .catch((err) => {
@@ -48,7 +66,7 @@ const Register = () => {
         <div className="w-1/3 h-1/3 m-auto">
           <h1 className="text-3xl font-bold mb-7">Registration</h1>
           <input
-            type="email"
+            type="text"
             className="border w-full p-3 my-2 rounded-sm"
             ref={nameRef}
             placeholder="name..."
