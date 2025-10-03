@@ -1,9 +1,27 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import useNowPlayingMovies from "../utils/useNowPlayingMovies";
 import { Logo, usersInTheAc } from "../utils/constants";
+import { signOut } from "firebase/auth";
+import { auth } from "../utils/firebase-config";
+import { useNavigate } from "react-router-dom";
 
 const Browse = () => {
   useNowPlayingMovies();
+  const [currentUser, setCurrentUser] = useState({
+    name: usersInTheAc[0].name,
+    icon: usersInTheAc[0].icon,
+  });
+  const navigate = useNavigate()
+  const [isDropDownEnable, setIsDropDownEnable] = useState(false);
+
+
+  const handleSignOut = () => {
+    signOut(auth).then(() => {
+      navigate('/')
+    }).catch((error) => {
+      navigate('/error')
+    })
+  }
 
   return (
     <div>
@@ -39,25 +57,47 @@ const Browse = () => {
           >
             <path d="M160-200v-80h80v-280q0-83 50-147.5T420-792v-28q0-25 17.5-42.5T480-880q25 0 42.5 17.5T540-820v28q80 20 130 84.5T720-560v280h80v80H160Zm320-300Zm0 420q-33 0-56.5-23.5T400-160h160q0 33-23.5 56.5T480-80ZM320-280h320v-280q0-66-47-113t-113-47q-66 0-113 47t-47 113v280Z" />
           </svg>
-          <select
-            className={`text-white mr-4 bg-[#0d0d0d78] border border-[#303030] rounded-sm py-1 px-4`}
-            name=""
-            id=""
-          >
-            {usersInTheAc.map((ele,ind) => {
+          <div className="flex gap-3 items-center cursor-pointer" onClick={() => setIsDropDownEnable(!isDropDownEnable)}>
+            <img className="w-10 rounded-sm" src={currentUser.icon} alt="" />
+            <p>{currentUser.name}</p>
+          </div>
+          { isDropDownEnable && <div className="absolute top-20 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm">
+            {usersInTheAc.map((ele, ind) => {
               return (
-                <option className="text-black bg-white" value={ele.name}> 
-                <div className="flex gap-3">
-                <img className="w-20 h-20" src='https://wallpapers.com/images/hd/netflix-profile-pictures-1000-x-1000-qo9h82134t9nv0j0.jpg' alt="" />
-                  <p>{ele.name}</p>
+                <div className="flex gap-3 m-2 text-white hover:underline">
+                  {ele.icon && (
+                    <img
+                      className="w-10 rounded-sm h-10 object-cover"
+                      src={ele.icon}
+                      alt=""
+                    />
+                  )}
+                  {ele.svg && (
+                    <svg className="mx-2 my-[2px]"
+                      xmlns={ele.svg.xmlns}
+                      height={ele.svg.height}
+                      viewBox={ele.svg.viewBox}
+                      width={ele.svg.width}
+                      fill={ele.svg.fill}
+                    >
+                      <path d={ele.svg.d}></path>
+                    </svg>
+                  )}
+                  <p className="my-auto">{ele.name}</p>
                 </div>
-              </option>)
+              );
             })}
-          </select>
+            <hr className="my-3 text-[#ffffff39]" />
+            <p className="text-center hover:underline cursor-pointer" onClick={handleSignOut}>Sign Out Of Netflix</p>
+          </div> }
         </div>
       </section>
       <section className="absolute top-0 z-[-1] w-full">
-        <img className="w-full h-screen brightness-[60%] object-cover" src="https://4kwallpapers.com/images/wallpapers/demon-slayer-3840x2160-23247.jpg" alt="" />
+        <img
+          className="w-full h-screen brightness-[60%] object-cover"
+          src="https://4kwallpapers.com/images/wallpapers/demon-slayer-3840x2160-23247.jpg"
+          alt=""
+        />
       </section>
     </div>
   );
