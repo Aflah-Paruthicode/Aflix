@@ -1,6 +1,7 @@
 import useNowPlayingMovies from "../utils/useNowPlayingMovies";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
+import SecondaryContainer from "./secondaryContainer";
 
 const Browse = () => {
   useNowPlayingMovies();
@@ -10,8 +11,11 @@ const Browse = () => {
       <section>
       <Header from={'browse'} />
       </section>
-      <section className="absolute top-0 z-[-1] w-full">
+      <section className=" top-0 z-[-1] w-full">
         <MainContainer />
+      </section>
+      <section>
+        <SecondaryContainer />
       </section>
     </div>
   );

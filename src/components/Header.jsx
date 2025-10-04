@@ -44,7 +44,7 @@ const Header = (props) => {
   }, []);
 
   return from == "browse" ? (
-    <div className="inline-flex w-full gap-24 justify-between items-center bg-gradient-to-b from-black absolute px-16">
+    <div className="inline-flex w-full gap-24 justify-between items-center bg-gradient-to-b from-black z-10 absolute px-16">
       <div className="flex items-center text-white font-semibold">
         <img className="w-28 mt-4" src={Logo} alt="" />
         <ul className="mt-4 flex ml-10 gap-5">
