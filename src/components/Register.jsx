@@ -49,8 +49,6 @@ const Register = () => {
           .catch((error) => {
             setErr(error.message);
           });
-
-        console.log(user);
       })
       .catch((err) => {
         setErr(err.code + "-" + err.message);

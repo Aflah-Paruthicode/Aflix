@@ -25,7 +25,6 @@ const Login = () => {
     )
       .then((userData) => {
         const user = userData.user;
-        console.log(user);
       })
       .catch((err) => {
         setErr(err.code + "-" + err.message);
