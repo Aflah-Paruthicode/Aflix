@@ -4,12 +4,13 @@ import { Logo, usersInTheAc } from "../utils/constants";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../utils/firebase-config";
 import { addUser, removeUser } from "../utils/userSlice";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { changeGptSearchState } from "../utils/gptSlice";
 
 const Header = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const toggleSearch = useSelector(store => store.gpt.isGptSearchEnable)
   const [currentUser, setCurrentUser] = useState({
     name: usersInTheAc[0].name,
     icon: usersInTheAc[0].icon,
@@ -58,8 +59,8 @@ const Header = (props) => {
       </div>
       <div className="mt-2 flex gap-5 items-center text-white font-semibold">
         <button className="bg-[#f00] flex items-center py-2 px-4 gap-1 rounded-sm" onClick={() => dispatch(changeGptSearchState())} >
-        <img className="w-6 rounded-full" src="/gpt.png" alt="" />
-        <p className="font-medium">GPT Search</p>
+        {!toggleSearch && <img className="w-6 rounded-full" src="/gpt.png" alt="" />}
+        <p className="font-medium">{toggleSearch ? 'Home' : 'GPT Search'}</p>
         </button>
         <p>Kids</p>
         <svg
