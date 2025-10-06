@@ -1,18 +1,18 @@
 import React from 'react'
-import GptSearchBar from './GptSearchBar'
+import GeminiSearchBar from './GeminiSearchBar'
 import { LoginPageBgImg } from '../utils/constants'
 
-const GptSearch = () => {
+const GeminiSearch = () => {
   return (
     <div>
         <section>
             <img className='absolute -z-10 brightness-[30%] w-full h-screen object-cover' src={LoginPageBgImg} alt="" />
         </section>
         <section>
-            <GptSearchBar />
+            <GeminiSearchBar />
         </section>
     </div>
   )
 }
 
-export default GptSearch
+export default GeminiSearch

@@ -6,10 +6,10 @@ import useUpcomingMovies from "../hooks/useUpcomingMovies";
 import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./secondaryContainer";
-import GptSearch from "./GptSearch";
+import GeminiSearch from "./GeminiSearch";
 
 const Browse = () => {
-  const showGptSearch = useSelector((store) => store.gpt.isGptSearchEnable);
+  const showGeminiSearch = useSelector((store) => store.gemini.isGeminiSearchEnable);
 
   useNowPlayingMovies();
   usePopularMovies();
@@ -21,8 +21,8 @@ const Browse = () => {
       <section>
         <Header from={"browse"} />
       </section>
-      {showGptSearch ? (
-        <GptSearch />
+      {showGeminiSearch ? (
+        <GeminiSearch />
       ) : (
         <>
           <section className=" top-0 z-[-1] w-full">
