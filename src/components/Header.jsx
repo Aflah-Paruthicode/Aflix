@@ -58,8 +58,8 @@ const Header = (props) => {
         </ul>
       </div>
       <div className="mt-2 flex gap-5 items-center text-white font-semibold">
-        <button className="bg-[#f00] flex items-center py-2 px-4 gap-1 rounded-sm" onClick={() => dispatch(changeGeminiSearchState())} >
-        {!toggleSearch && <img className="w-6 rounded-full" src="/ggg.png" alt="" />}
+        <button className="bg-[#f00] flex items-center py-2 px-3 gap-1 rounded-sm" onClick={() => dispatch(changeGeminiSearchState())} >
+        {!toggleSearch && <img className="w-6 rounded-full" src="/ai.png" alt="" />}
         <p className="font-medium">{toggleSearch ? 'Home' : 'Gemini Search'}</p>
         </button>
         <p>Kids</p>
