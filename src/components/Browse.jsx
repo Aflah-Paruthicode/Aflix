@@ -10,11 +10,15 @@ import GeminiSearch from "./GeminiSearch";
 
 const Browse = () => {
   const showGeminiSearch = useSelector((store) => store.gemini.isGeminiSearchEnable);
+  const nowPlayingMovies = useSelector((store) => store.gemini.nowPlayingMovies);
+  const popularMovies = useSelector((store) => store.gemini.popularMovies);
+  const topRatedMovies = useSelector((store) => store.gemini.topRatedMovies);
+  const upcomingMovies = useSelector((store) => store.gemini.upcomingMovies)
 
-  useNowPlayingMovies();
-  usePopularMovies();
-  useTopRatedMovies();
-  useUpcomingMovies();
+  !nowPlayingMovies && useNowPlayingMovies();
+  !popularMovies && usePopularMovies();
+  !topRatedMovies && useTopRatedMovies();
+  !upcomingMovies && useUpcomingMovies();
 
   return (
     <div className="">

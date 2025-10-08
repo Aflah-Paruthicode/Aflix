@@ -58,7 +58,7 @@ const Header = (props) => {
         </ul>
       </div>
       <div className="mt-2 flex gap-5 items-center text-white font-semibold">
-        <button className="bg-[#f00] flex items-center py-2 px-3 gap-1 rounded-sm" onClick={() => dispatch(changeGeminiSearchState())} >
+        <button className="bg-transparent flex items-center py-2 px-3 gap-1 cursor-pointer border rounded-md" onClick={() => dispatch(changeGeminiSearchState())} >
         {!toggleSearch && <img className="w-6 rounded-full" src="/ai.png" alt="" />}
         <p className="font-medium">{toggleSearch ? 'Home' : 'Gemini Search'}</p>
         </button>
@@ -80,7 +80,7 @@ const Header = (props) => {
           <p>{currentUser.name}</p>
         </div>
         {isDropDownEnable && (
-          <div className="absolute top-20 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm">
+          <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm">
             {usersInTheAc.map((ele, ind) => {
               return (
                 <div className="flex gap-3 m-2 text-white hover:underline">
