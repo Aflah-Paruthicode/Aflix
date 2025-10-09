@@ -10,9 +10,9 @@ import { changeGeminiSearchState } from "../utils/geminiSlice";
 const Header = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const userName = useSelector((store) => store.user?.displayName)
   const toggleSearch = useSelector(store => store.gemini.isGeminiSearchEnable)
   const [currentUser, setCurrentUser] = useState({
-    name: usersInTheAc[0].name,
     icon: usersInTheAc[0].icon,
   });
   const [isDropDownEnable, setIsDropDownEnable] = useState(false);
@@ -49,12 +49,12 @@ const Header = (props) => {
       <div className="flex items-center text-white font-semibold">
         <img className="w-28 mt-4" src={Logo} alt="" />
         <ul className="mt-4 flex ml-10 gap-5">
-          <li>Home</li>
-          <li>TV Shows</li>
-          <li>Movies</li>
-          <li>New & Popular</li>
-          <li>My List</li>
-          <li>Browse By Languages</li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Home</li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">TV Shows</li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Movies</li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">New & Popular</li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">My List</li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Browse By Languages</li>
         </ul>
       </div>
       <div className="mt-2 flex gap-5 items-center text-white font-semibold">
@@ -77,13 +77,13 @@ const Header = (props) => {
           onClick={() => setIsDropDownEnable(!isDropDownEnable)}
         >
           <img className="w-10 rounded-sm" src={currentUser.icon} alt="" />
-          <p>{currentUser.name}</p>
+          <p>{userName}</p>
         </div>
         {isDropDownEnable && (
           <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm">
             {usersInTheAc.map((ele, ind) => {
               return (
-                <div className="flex gap-3 m-2 text-white hover:underline">
+                <div className="flex gap-3 m-2 text-white hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
                   {ele.icon && (
                     <img
                       className="w-10 rounded-sm h-10 object-cover"
@@ -103,13 +103,13 @@ const Header = (props) => {
                       <path d={ele.svg.d}></path>
                     </svg>
                   )}
-                  <p className="my-auto">{ele.name}</p>
+                  <p className="my-auto">{ele.name ? ele.name : userName}</p>
                 </div>
               );
             })}
             <hr className="my-3 text-[#ffffff39]" />
             <p
-              className="text-center hover:underline cursor-pointer"
+              className="text-center hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer"
               onClick={handleSignOut}
             >
               Sign Out Of Netflix
