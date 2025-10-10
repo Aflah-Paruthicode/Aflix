@@ -45,10 +45,10 @@ const Header = (props) => {
   }, []);
 
   return from == "browse" ? (
-    <div className="inline-flex w-full gap-24 justify-between items-center bg-gradient-to-b from-black z-10 absolute px-16">
-      <div className="flex items-center text-white font-semibold">
-        <img className="w-28 mt-4" src={Logo} alt="" />
-        <ul className="mt-4 flex ml-10 gap-5 max-md:hidden">
+    <div className="inline-flex w-full md:gap-24 justify-between items-center bg-gradient-to-b from-black z-10  px-16 max-md:px-5 absolute">
+      <div className="md:flex items-center text-white font-semibold">
+        <img className="w-28 mt-4 max-md:w-20 max-md:mr-8" src={Logo} alt="" />
+        <ul className="mt-4 flex ml-10 gap-5 max-md:hidden"> 
           <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Home</li>
           <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">TV Shows</li>
           <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Movies</li>
@@ -60,10 +60,11 @@ const Header = (props) => {
       <div className="mt-2 flex gap-5 items-center text-white font-semibold">
         <button className="bg-transparent flex items-center py-2 px-3 gap-1 cursor-pointer border rounded-md hover:text-white hover:bg-red-600 hover:border-none transition-all duration-200" onClick={() => dispatch(changeGeminiSearchState())} >
         {!toggleSearch && <img className="w-6 rounded-full" src="/ai.png" alt="" />}
-        <p className="font-medium">{toggleSearch ? 'Home' : 'Gemini Search'}</p>
+        <p className="font-medium text-sm max-md:hidden">{toggleSearch ? 'Home' : 'Gemini Search'}</p>
+        <p className="text-sm md:hidden">{toggleSearch ? 'Home' : 'Gemini'}</p>
         </button>
-        <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Kids</p>
-        <svg
+        <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer max-md:hidden">Kids</p>
+        <svg className="max-md:hidden"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
           viewBox="0 -960 960 960"
@@ -77,7 +78,7 @@ const Header = (props) => {
           onClick={() => setIsDropDownEnable(!isDropDownEnable)}
         >
           <img className="w-10 rounded-sm" src={currentUser.icon} alt="" />
-          <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer max-md:hidden">{userName}</p>
+          <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">{userName}</p>
         </div>
         {isDropDownEnable && (
           <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm">

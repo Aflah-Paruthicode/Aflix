@@ -14,11 +14,6 @@ const MainContainer = () => {
     <div>
         <VideoTitle title={original_title} overview={overview} />
         <VideoBackground movieId={id} />
-        {/* <img
-          className="w-full h-screen brightness-[60%] object-cover"
-          src="https://4kwallpapers.com/images/wallpapers/demon-slayer-3840x2160-23247.jpg"
-          alt=""
-        /> */}
     </div>
   )
 }
