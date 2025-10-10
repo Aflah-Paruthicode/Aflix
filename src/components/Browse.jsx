@@ -7,6 +7,7 @@ import Header from "./Header";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./secondaryContainer";
 import GeminiSearch from "./GeminiSearch";
+import Footer from "./Footer";
 
 const Browse = () => {
   const showGeminiSearch = useSelector((store) => store.gemini.isGeminiSearchEnable);
@@ -37,6 +38,9 @@ const Browse = () => {
           </section>
         </>
       )}
+      <section>
+        <Footer />
+      </section>
     </div>
   );
 };

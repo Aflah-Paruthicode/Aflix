@@ -41,10 +41,10 @@ const GeminiSearchBar = () => {
       const promiseArray = movieNames.map((movie) => findMovie(movie));
       const foundMovies = await Promise.all(promiseArray);
       let movies = foundMovies
-        .map(resultsList => resultsList[0])
-        .filter(movie => movie !== undefined)
-        
-         const filteredMovies = movies; 
+        .map((resultsList) => resultsList[0])
+        .filter((movie) => movie !== undefined);
+
+      const filteredMovies = movies;
 
       console.log(filteredMovies);
       console.log(" movies are : ", filteredMovies);
