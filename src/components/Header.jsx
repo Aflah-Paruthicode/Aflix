@@ -128,7 +128,7 @@ const Header = (props) => {
       } w-full`}
     >
       {from == "login" ? (
-        <img className="ml-96 w-28 mt-4" src="./AflixLogo.png" alt="" />
+        <img className="ml-96 max-md:ml-2 max-md:w-20 w-28 mt-4" src="./AflixLogo.png" alt="" />
       ) : (
         <div className="inline-flex w-full gap-24 justify-around items-center">
           <img className="w-28 mt-4" src={Logo} alt="" />
