@@ -7,7 +7,7 @@ const GeminiSearch = () => {
   return (
     <div>
         <section>
-            <img className='fixed -z-10 brightness-[30%] w-full object-cover' src={LoginPageBgImg} alt="" />
+            <img className='fixed -z-10 brightness-[30%] w-full object-cover max-md:h-screen' src={LoginPageBgImg} alt="" />
         </section>
         <section>
             <GeminiSearchBar />

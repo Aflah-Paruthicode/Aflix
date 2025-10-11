@@ -81,7 +81,7 @@ const Header = (props) => {
           <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">{userName}</p>
         </div>
         {isDropDownEnable && (
-          <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm">
+          <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm max-md:z-[999999]">
             {usersInTheAc.map((ele, ind) => {
               return (
                 <div className="flex gap-3 m-2 text-white hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
