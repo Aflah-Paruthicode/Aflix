@@ -60,9 +60,9 @@ const Register = () => {
       <section className="w-full">
         <Header from={"register"} />
       </section>
-      <section className="w-full h-[75vh] flex justify-center items-center">
-        <div className="w-1/3 h-1/3 m-auto">
-          <h1 className="text-3xl font-bold mb-7">Registration</h1>
+      <section className="w-full h-[75vh] max-md:h-[85vh] flex justify-center items-center max-md:px-4 pt-28">
+        <div className="w-1/3 h-1/3 m-auto max-md:w-full max-md:h-auto">
+          <h1 className="text-3xl font-bold mb-7 max-md:text-xl">Registration</h1>
           <input
             type="text"
             className="border w-full p-3 my-2 rounded-sm"

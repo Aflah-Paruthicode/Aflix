@@ -81,7 +81,7 @@ const Header = (props) => {
           <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">{userName}</p>
         </div>
         {isDropDownEnable && (
-          <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm max-md:z-[999999]">
+          <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm max-md:z-[499999]">
             {usersInTheAc.map((ele, ind) => {
               return (
                 <div className="flex gap-3 m-2 text-white hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
@@ -90,7 +90,7 @@ const Header = (props) => {
                       className="w-10 rounded-sm h-10 object-cover"
                       src={ele.icon}
                       alt=""
-                    />
+                    /> 
                   )}
                   {ele.svg && (
                     <svg
@@ -130,8 +130,8 @@ const Header = (props) => {
       {from == "login" ? (
         <img className="ml-96 max-md:ml-2 max-md:w-20 w-28 mt-4" src="./AflixLogo.png" alt="" />
       ) : (
-        <div className="inline-flex w-full gap-24 justify-around items-center">
-          <img className="w-28 mt-4" src={Logo} alt="" />
+        <div className="inline-flex w-full gap-24 max-md:gap-3 max-md:mt-2 justify-around items-center">
+          <img className="w-28 mt-4 max-md:w-20" src={Logo} alt="" />
           <div className="mt-2">
             <select
               className={` ${

@@ -7,7 +7,7 @@ const MovieCard = ({ posterPath, title, overView, relesed, rating }) => {
   return (
     <div className="w-60 max-md:w-40 z-20 hover:mx-1 transition relative max-md:z-[99]">
       <div className="hover:scale-105 transition duration-300 group">
-        <div className="absolute text-center w-[90%] left-1/2 -translate-x-1/2 top-16 text-white font-bold z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute max-md:hidden text-center w-[90%] left-1/2 -translate-x-1/2 top-16 text-white font-bold z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <h1 className="font-[poppins] font-semibold text-[20px]">
             {title}
           </h1>
@@ -15,7 +15,7 @@ const MovieCard = ({ posterPath, title, overView, relesed, rating }) => {
             {relesed} 
           </p>
         </div>{" "}
-        <div className="absolute bottom-8 left-1/2 font-[cursive] text-[15px] -translate-x-1/2 w-[90%]  text-white font-extralight z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        <div className="absolute max-md:hidden bottom-8 left-1/2 font-[cursive] text-[15px] -translate-x-1/2 w-[90%]  text-white font-extralight z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
         <p className="text-yellow-500 mb-3">
            ★ {rating}
         </p>

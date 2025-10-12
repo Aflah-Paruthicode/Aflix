@@ -4,7 +4,7 @@ export function checkInputs (email,password,name = null) {
 
     if(name) if(name.trim() == '' || name.length < 2 || name.length > 10) return 'Enter Proper Name'
     if(!isEmail) return 'Email Not Valid';
-    if(!isPassword) return 'Password Not Valid'
+    if(!isPassword) return 'Password Not Valid! .. valid example (Aflu@123)'
 
     return null
 }
