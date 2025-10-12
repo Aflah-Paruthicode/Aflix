@@ -14,7 +14,7 @@ const Login = () => {
 
   function isValidCredentials() {
     let message = checkInputs(email.current.value, password.current.value,null);
-    setErr(message);
+     message && setErr('Invalid email or password');
 
     if (message) return;
 
@@ -57,7 +57,7 @@ const Login = () => {
             type="password"
           />
           {err && (
-            <p className="text-red-700 text-base py-3 font-semibold">{err}</p>
+            <p className="text-red-700 text-base py-3 font-semibold max-md:font-normal">{err}</p>
           )}
           <input
             onClick={isValidCredentials}
@@ -81,7 +81,7 @@ const Login = () => {
         </div>
         <p className="text-[#a2a2a2de] font-medium mb-4">
           New to Netflix?
-          <Link to={"/SignUp"}>
+          <Link to={"/"}>
             <span className="text-white">Sign up now.</span>
           </Link>
         </p>

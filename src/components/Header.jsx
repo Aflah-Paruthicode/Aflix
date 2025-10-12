@@ -35,7 +35,7 @@ const Header = (props) => {
         navigate('/browse')
       } else {
         dispatch(removeUser());
-        if (window.location.pathname !== "/" && window.location.pathname !== "/SignUp" && !window.location.pathname.startsWith("/register")) {
+        if (window.location.pathname !== "/" && window.location.pathname !== "/login" && !window.location.pathname.startsWith("/register")) {
           navigate('/')
         }
       }
@@ -150,7 +150,7 @@ const Header = (props) => {
               </option>
             </select>
             <button
-              onClick={() => navigate("/")}
+              onClick={() => navigate("/login")}
               className="py-1 px-4 bg-red-600 text-white font-semibold rounded-sm"
             >
               Sign in
