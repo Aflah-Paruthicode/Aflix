@@ -45,7 +45,7 @@ const Header = (props) => {
   }, []);
 
   return from == "browse" ? (
-    <div className="inline-flex w-full md:gap-24 justify-between items-center bg-gradient-to-b from-black z-10  px-16 max-md:px-5 absolute">
+    <div className="inline-flex w-full md:gap-24 justify-between items-center bg-gradient-to-b from-black z-[999999999]  px-16 max-md:px-5 absolute">
       <div className="md:flex items-center text-white font-semibold">
         <img className="w-28 mt-4 max-md:w-20 max-md:mr-8" src={Logo} alt="" />
         <ul className="mt-4 flex ml-10 gap-5 max-md:hidden"> 
@@ -57,7 +57,7 @@ const Header = (props) => {
           <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Browse By Languages</li>
         </ul>
       </div>
-      <div className="mt-2 flex gap-5 items-center text-white font-semibold">
+      <div className="mt-2 flex gap-5 items-center text-white font-semibold max-md:z-[9999999]">
         <button className="bg-transparent flex items-center py-2 px-3 gap-1 cursor-pointer border rounded-md hover:text-white hover:bg-red-600 hover:border-none transition-all duration-200" onClick={() => dispatch(changeGeminiSearchState())} >
         {!toggleSearch && <img className="w-6 rounded-full" src="/ai.png" alt="" />}
         <p className="font-medium text-sm max-md:hidden">{toggleSearch ? 'Home' : 'Gemini Search'}</p>

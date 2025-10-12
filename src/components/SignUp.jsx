@@ -12,7 +12,18 @@ const SignUp = () => {
   const [email,setEmail] = useState('')
   const [faqToggleIndex, setFaqToggleIndex] = useState(-1);
   const navigate = useNavigate()
+  const [err,setErr] = useState(null)
   const isLineHaveToBreak = window.innerWidth > 768 ? true : false
+
+  const handleSignup = () => {
+    const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
+        if(!isEmail) {
+          setErr('Email Not Valid')
+          return;
+        }
+
+    navigate(`/register/${email}`)
+  }
 
   const settings = {
     dots: false,
@@ -53,19 +64,20 @@ const SignUp = () => {
         >
           <input
             className="bg-[#1a1a1ab6] py-2 max-md:py-0 px-8 rounded-sm border w-[450px] h-[55px] max-md:h-[45px] text-[#888888] font-semibold"
-            placeholder="Email or mobile number"
+            placeholder="Enter your email"
             onChange={(e) => setEmail(e.target.value)}
             value={email}
             type="text"
           /> 
+          
           <input
             className="bg-red-600 py-2 px-8 font-semibold text-[25px] max-md:text-base max-md:my-1 text-white rounded-sm"
             value="Get Started  〉"
             type="submit"
-            onClick={() => {
-              navigate(`/register/${email}`)
-            }}
+            onClick={handleSignup}
           />
+          {err && <p className="absolute text-red-600 max-md:left-10 m-2 ">{err}</p>}
+
         </form>
       </div>
 
@@ -158,17 +170,21 @@ const SignUp = () => {
         <p className="font-medium text-[16.5px] mb-4 text-[#cacaca] max-md:text-start">
           Ready to watch? Enter your email to create or restart your membership.
         </p>
-        <form action="" className="flex justify-center items-center max-md:items-start gap-2 max-md:gap-3 max-md:flex-col max-md:w-full">
+        <form onSubmit={(e) => e.preventDefault()}  action="" className="flex justify-center items-center max-md:items-start gap-2 max-md:gap-3 max-md:flex-col max-md:w-full">
           <input
             className="bg-[#1a1a1ab6] py-2 px-8 rounded-sm border w-[450px] max-md:w-[95%] h-[55px] max-md:h-[45px] text-[#888888] font-semibold"
-            placeholder="Email or mobile number"
+            placeholder="Enter your email"
+            onChange={(e) => setEmail(e.target.value)}
+            value={email}
             type="text"
           />
           <input
             className="bg-red-600 py-2 px-8 font-semibold text-[25px] max-md:text-[18px] text-white rounded-sm"
             value="Get Started  〉"
             type="submit"
+            onClick={handleSignup}
           />
+          {err && <p className="absolute text-red-600 max-md:left-10 m-2 ">{err}</p>}
         </form>
       </div>
       <Footer />
