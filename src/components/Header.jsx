@@ -10,8 +10,10 @@ import { changeGeminiSearchState } from "../utils/geminiSlice";
 const Header = (props) => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  const userName = useSelector((store) => store.user?.displayName)
-  const toggleSearch = useSelector(store => store.gemini.isGeminiSearchEnable)
+  const userName = useSelector((store) => store.user?.displayName);
+  const toggleSearch = useSelector(
+    (store) => store.gemini.isGeminiSearchEnable
+  );
   const [currentUser, setCurrentUser] = useState({
     icon: usersInTheAc[0].icon,
   });
@@ -20,23 +22,26 @@ const Header = (props) => {
 
   const handleSignOut = () => {
     signOut(auth)
-      .then(() => {
-      })
+      .then(() => {})
       .catch((error) => {
         navigate("/error");
       });
   };
 
-    useEffect(() => {
-     const unsubscribe = onAuthStateChanged(auth, (user) => {
+  useEffect(() => {
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
         const { uid, email, displayName } = user;
         dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
-        navigate('/browse')
+        navigate("/browse");
       } else {
         dispatch(removeUser());
-        if (window.location.pathname !== "/" && window.location.pathname !== "/login" && !window.location.pathname.startsWith("/register")) {
-          navigate('/')
+        if (
+          window.location.pathname !== "/" &&
+          window.location.pathname !== "/login" &&
+          !window.location.pathname.startsWith("/register")
+        ) {
+          navigate("/");
         }
       }
     });
@@ -48,23 +53,47 @@ const Header = (props) => {
     <div className="inline-flex w-full md:gap-24 justify-between items-center bg-gradient-to-b from-black z-[999999999]  px-16 max-md:px-5 absolute">
       <div className="md:flex items-center text-white font-semibold">
         <img className="w-28 mt-4 max-md:w-20 max-md:mr-8" src={Logo} alt="" />
-        <ul className="mt-4 flex ml-10 gap-5 max-md:hidden"> 
-          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Home</li>
-          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">TV Shows</li>
-          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Movies</li>
-          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">New & Popular</li>
-          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">My List</li>
-          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">Browse By Languages</li>
+        <ul className="mt-4 flex ml-10 gap-5 max-md:hidden">
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
+            Home
+          </li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
+            TV Shows
+          </li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
+            Movies
+          </li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
+            New & Popular
+          </li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
+            My List
+          </li>
+          <li className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
+            Browse By Languages
+          </li>
         </ul>
       </div>
       <div className="mt-2 flex gap-5 items-center text-white font-semibold max-md:z-[9999999]">
-        <button className="bg-transparent flex items-center py-2 px-3 gap-1 cursor-pointer border rounded-md hover:text-white hover:bg-red-600 hover:border-none transition-all duration-200" onClick={() => dispatch(changeGeminiSearchState())} >
-        {!toggleSearch && <img className="w-6 rounded-full" src="/ai.png" alt="" />}
-        <p className="font-medium text-sm max-md:hidden">{toggleSearch ? 'Home' : 'Gemini Search'}</p>
-        <p className="text-sm md:hidden">{toggleSearch ? 'Home' : 'Gemini'}</p>
+        <button
+          className="bg-transparent flex items-center py-2 px-3 gap-1 cursor-pointer border rounded-md hover:text-white hover:bg-red-600 hover:border-none transition-all duration-200"
+          onClick={() => dispatch(changeGeminiSearchState())}
+        >
+          {!toggleSearch && (
+            <img className="w-6 rounded-full" src="/ai.png" alt="" />
+          )}
+          <p className="font-medium text-sm max-md:hidden">
+            {toggleSearch ? "Home" : "Gemini Search"}
+          </p>
+          <p className="text-sm md:hidden">
+            {toggleSearch ? "Home" : "Gemini"}
+          </p>
         </button>
-        <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer max-md:hidden">Kids</p>
-        <svg className="max-md:hidden"
+        <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer max-md:hidden">
+          Kids
+        </p>
+        <svg
+          className="max-md:hidden"
           xmlns="http://www.w3.org/2000/svg"
           height="24px"
           viewBox="0 -960 960 960"
@@ -78,7 +107,9 @@ const Header = (props) => {
           onClick={() => setIsDropDownEnable(!isDropDownEnable)}
         >
           <img className="w-10 rounded-sm" src={currentUser.icon} alt="" />
-          <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">{userName}</p>
+          <p className="hover:underline hover:decoration-red-600 hover:decoration-2 underline-offset-4 cursor-pointer">
+            {userName}
+          </p>
         </div>
         {isDropDownEnable && (
           <div className="absolute top-20 right-10 p-3 bg-[#000000c6] border w-[270px] border-[#ffffff39] rounded-sm max-md:z-[499999]">
@@ -90,7 +121,7 @@ const Header = (props) => {
                       className="w-10 rounded-sm h-10 object-cover"
                       src={ele.icon}
                       alt=""
-                    /> 
+                    />
                   )}
                   {ele.svg && (
                     <svg
@@ -128,7 +159,11 @@ const Header = (props) => {
       } w-full`}
     >
       {from == "login" ? (
-        <img className="ml-96 max-md:ml-2 max-md:w-20 w-28 mt-4" src="./AflixLogo.png" alt="" />
+        <img
+          className="ml-96 max-md:ml-2 max-md:w-20 w-28 mt-4"
+          src="./AflixLogo.png"
+          alt=""
+        />
       ) : (
         <div className="inline-flex w-full gap-24 max-md:gap-3 max-md:mt-2 justify-around items-center">
           <img className="w-28 mt-4 max-md:w-20" src={Logo} alt="" />

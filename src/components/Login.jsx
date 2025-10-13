@@ -13,8 +13,12 @@ const Login = () => {
   const [err, setErr] = useState();
 
   function isValidCredentials() {
-    let message = checkInputs(email.current.value, password.current.value,null);
-     message && setErr('Invalid email or password');
+    let message = checkInputs(
+      email.current.value,
+      password.current.value,
+      null
+    );
+    message && setErr("Invalid email or password");
 
     if (message) return;
 
@@ -32,24 +36,26 @@ const Login = () => {
   }
 
   return (
-    <div className="w-full"> 
-      <Header from={"login"} /> 
-      <div className=" brightness-50 h-[90vh] max-md:h-[100vh] w-full"> 
+    <div className="w-full">
+      <Header from={"login"} />
+      <div className=" brightness-50 h-[90vh] max-md:h-[100vh] w-full">
         <img
           className="w-full h-[90vh] max-md:h-screen object-cover object-top"
           src={LoginPageBgImg}
           alt=""
-        /> 
-      </div> 
+        />
+      </div>
       <div className="absolute left-0 right-0 mx-auto top-24 bg-[#000000a6] w-[29rem] max-md:w-[90%] p-16 max-md:py-4 max-md:px-6 rounded-sm">
-        <h1 className="text-white font-bold text-4xl mb-8 max-md:text-2xl">Sign In</h1>
+        <h1 className="text-white font-bold text-4xl mb-8 max-md:text-2xl">
+          Sign In
+        </h1>
         <form onSubmit={(e) => e.preventDefault()}>
           <input
             ref={email}
             className="bg-[#1a1a1ab6] w-full h-14 mb-4 rounded-sm border text-[#888888] p-2 font-semibold"
             placeholder="Enter your email"
             type="text"
-          /> 
+          />
           <input
             ref={password}
             className="bg-[#1a1a1ab6] w-full h-14 mb-4 rounded-sm border text-[#888888] p-5 font-semibold"
@@ -57,7 +63,9 @@ const Login = () => {
             type="password"
           />
           {err && (
-            <p className="text-red-700 text-base py-3 font-semibold max-md:font-normal">{err}</p>
+            <p className="text-red-700 text-base py-3 font-semibold max-md:font-normal">
+              {err}
+            </p>
           )}
           <input
             onClick={isValidCredentials}
@@ -66,7 +74,9 @@ const Login = () => {
             type="submit"
           />
         </form>
-        <p className="text-[#888888] font-bold text-center mb-4 max-md:hidden">OR</p>
+        <p className="text-[#888888] font-bold text-center mb-4 max-md:hidden">
+          OR
+        </p>
         <input
           className="bg-[#474747c4] w-full h-10 mb-4 font-semibold text-white rounded-sm max-md:hidden"
           value="Use a sign-in code"
