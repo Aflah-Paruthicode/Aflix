@@ -47,7 +47,7 @@ export const useGetGeminiMovies = async (
       .split(",")
       .map((name) => name.trim())
       .filter((name) => name.length > 0);
-    console.log(movieNames);
+    (movieNames);
     const promiseArray = movieNames.map((movie) => findMovie(movie));
     const foundMovies = await Promise.all(promiseArray);
     let movies = foundMovies
@@ -56,10 +56,10 @@ export const useGetGeminiMovies = async (
 
     const filteredMovies = movies;
 
-    console.log(filteredMovies);
-    console.log(" movies are : ", filteredMovies);
+    (filteredMovies);
+    (" movies are : ", filteredMovies);
     dispatch(addGeminiMovieResults(filteredMovies));
-    console.log(result.response.text());
+    (result.response.text());
   } catch (error) {
     console.error("Gemini error:", error);
   }

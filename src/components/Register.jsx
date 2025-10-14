@@ -30,6 +30,16 @@ const Register = () => {
 
     if (message) return;
 
+    if (
+      nameRef.current.value.trim() == "" ||
+      nameRef.current.value.length < 2 ||
+      nameRef.current.value.length > 10
+    ) {
+
+      setErr("Enter Proper Name");
+      return 
+    }
+
     createUserWithEmailAndPassword(
       auth,
       emailRef.current.value,
@@ -60,7 +70,7 @@ const Register = () => {
       <section className="w-full">
         <Header from={"register"} />
       </section>
-      <section className="w-full h-[75vh] max-md:h-[85vh] flex justify-center items-center max-md:px-4 pt-28">
+      <section className="w-full h-[77vh] max-md:h-[85vh] flex justify-center items-center max-md:px-4 pt-28">
         <div className="w-1/3 h-1/3 m-auto max-md:w-full max-md:h-auto">
           <h1 className="text-3xl font-bold mb-7 max-md:text-xl">
             Registration
@@ -84,7 +94,9 @@ const Register = () => {
             placeholder="password"
           />
           {err && (
-            <p className="text-red-700 text-base py-3 font-semibold">{err}</p>
+            <p className="text-red-700 text-base py-3 font-semibold max-md:font-normal">
+              {err}
+            </p>
           )}
           <input
             type="submit"

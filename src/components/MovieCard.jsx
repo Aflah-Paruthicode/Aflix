@@ -5,7 +5,7 @@ const MovieCard = ({ posterPath, title, overView, relesed, rating }) => {
   if (!posterPath) return;
 
   return (
-    <div className="w-60 max-md:w-40 z-20 hover:mx-1 transition relative max-md:z-[99]">
+    <div className="w-60 max-md:w-40 z-20 hover:mx-1 transition relative max-md:z-[99] cursor-pointer">
       <div className="hover:scale-105 transition duration-300 group">
         <div className="absolute max-md:hidden text-center w-[90%] left-1/2 -translate-x-1/2 top-16 text-white font-bold z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <h1 className="font-[poppins] font-semibold text-[20px]">{title}</h1>

@@ -1,4 +1,4 @@
-export function checkInputs(email, password, name = null) {
+export function checkInputs(email, password) {
   const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
     email
   );
@@ -7,11 +7,8 @@ export function checkInputs(email, password, name = null) {
       password
     );
 
-  if (name)
-    if (name.trim() == "" || name.length < 2 || name.length > 10)
-      return "Enter Proper Name";
   if (!isEmail) return "Email Not Valid";
-  if (!isPassword) return "Password Not Valid!";
+  if (!isPassword) return "At least one capital letter, minimum 8 characters, and a special character and a number needed for password";
 
   return null;
 }

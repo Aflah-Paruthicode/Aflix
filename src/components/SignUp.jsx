@@ -77,7 +77,7 @@ const SignUp = () => {
           />
 
           <input
-            className="bg-red-600 py-2 px-8 font-semibold text-[25px] max-md:text-base max-md:my-1 text-white rounded-sm"
+            className="bg-red-600 py-2 px-8 font-semibold text-[25px] max-md:text-base max-md:my-1 text-white rounded-sm cursor-pointer"
             value="Get Started  〉"
             type="submit"
             onClick={handleSignup}
@@ -190,7 +190,7 @@ const SignUp = () => {
             type="text"
           />
           <input
-            className="bg-red-600 py-2 px-8 font-semibold text-[25px] max-md:text-[18px] text-white rounded-sm"
+            className="bg-red-600 py-2 px-8 font-semibold text-[25px] max-md:text-[18px] text-white rounded-sm cursor-pointer"
             value="Get Started  〉"
             type="submit"
             onClick={handleSignup}

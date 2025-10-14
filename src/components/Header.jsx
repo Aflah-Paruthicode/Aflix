@@ -186,7 +186,7 @@ const Header = (props) => {
             </select>
             <button
               onClick={() => navigate("/login")}
-              className="py-1 px-4 bg-red-600 text-white font-semibold rounded-sm"
+              className="py-1 px-4 bg-red-600 text-white font-semibold rounded-sm cursor-pointer"
             >
               Sign in
             </button>

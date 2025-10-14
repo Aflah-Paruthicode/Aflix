@@ -6,7 +6,7 @@ const VideoTitle = ({ title, overview }) => {
       <h1 className="text-3xl font-bold">{title}</h1>
       <p className="py-6 text-lg w-1/4 max-md:hidden">{overview}</p>
       <div className="flex gap-2 max-md:mt-2">
-        <button className="bg-white py-3 max-md:py-[6px] max-md:px-5 hover:bg-[#c2c2c2] px-11 text-black font-bold rounded-sm flex gap-1">
+        <button className="bg-white py-3 max-md:py-[6px] max-md:px-5 hover:bg-[#c2c2c2] px-11 text-black font-bold rounded-sm flex gap-1 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
@@ -18,7 +18,7 @@ const VideoTitle = ({ title, overview }) => {
           </svg>{" "}
           Play
         </button>
-        <button className="bg-[#6e6e6e6f] py-3 max-md:py-[6px] max-md:px-5 px-11 font-semibold rounded-sm flex gap-1">
+        <button className="bg-[#6e6e6e6f] py-3 max-md:py-[6px] max-md:px-5 px-11 font-semibold rounded-sm flex gap-1 cursor-pointer">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="24px"
