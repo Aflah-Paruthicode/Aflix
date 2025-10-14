@@ -2,12 +2,15 @@ import React, { useRef, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Atom } from "react-loading-indicators";
 import { useGetGeminiMovies } from "../hooks/useGetGeminiMovies";
+import { Genre, LanguagesForGenre } from "../utils/constants";
 
 const GeminiSearchBar = () => {
   const searchText = useRef(null);
   const dispatch = useDispatch();
   const [err, setErr] = useState("");
   const [searchDisabled, setSearchDisabled] = useState(false);
+  // const [language,setLanguage] = useState('');
+  // const [genre,setGenre] = useState('');
 
   return (
     <div className="h-[70vh] w-full flex flex-col justify-center items-center max-md:w-[80%] max-md:m-auto">
@@ -48,6 +51,37 @@ const GeminiSearchBar = () => {
           </button>
         )}
       </div>
+
+      {/* Coming Soon This Feature */}
+      {/* <div className="flex justify-between w-1/3">
+        <div>
+          <label htmlFor="" className="text-white">
+            Language : 
+          </label>
+          <select onChange={(e) => setLanguage(e.target.value)} value={language}
+            className="bg-[#4646468e] rounded-lg p-2 text-white m-2"
+            name="Language"
+            id=""
+          >
+            <option value=''>Choose One...</option> 
+            {LanguagesForGenre.map((Language) => <option value={Language}>{Language}</option> )}
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="" className="text-white">
+            Genre : 
+          </label>
+          <select
+            className="bg-[#4646468e] rounded-lg p-2 text-white m-2"
+            name="Language"
+            id=""
+          >
+            <option value="">Choose One...</option>
+            {Genre.map((genre) => <option value={genre}>{genre}</option>)}            
+          </select>
+        </div>
+      </div> */}
     </div>
   );
 };

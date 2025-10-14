@@ -11,6 +11,7 @@ export const useGetGeminiMovies = async (
   setErr
 ) => {
   try {
+
     if (searchText.current.value.trim() == "") {
       setErr("Enter Something!!");
       return;
@@ -34,12 +35,11 @@ export const useGetGeminiMovies = async (
       const json = await movie.json();
       return json.results;
     };
-
+    setErr("")
     const model = Gemini;
     const prompt =
       "Act as a Movie Recommendation system and suggest some movies for the query : " +
-      searchText.current.value +
-      ". only give me names of 28 to 50 movies comma seperated like the example given ahead. Example result : Gadar,Sholay,Don,Golmaal, Koi Mil Gaya";
+      searchText.current.value+". only give me names of 28 to 50 movies comma seperated like the example given ahead. Example result : Gadar,Sholay,Don,Golmaal, Koi Mil Gaya."
 
     const result = await model.generateContent(prompt);
     const movieNames = result.response
@@ -62,5 +62,6 @@ export const useGetGeminiMovies = async (
     (result.response.text());
   } catch (error) {
     console.error("Gemini error:", error);
+    setErr(error)
   }
 };
