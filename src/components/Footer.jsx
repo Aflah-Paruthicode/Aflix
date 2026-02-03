@@ -34,10 +34,7 @@ const Footer = () => {
         </div>
         <p className="text-start my-7 max-md:mx-6">Aflix India</p>
         <p className="text-start text-[12px] text-[#999999] max-md:mx-6">
-          This page is protected by Google reCAPTCHA to ensure you're not a bot.{" "}
-          <span className="text-blue-500 underline font-normal">
-            Learn more.
-          </span>
+          This page is protected by Google reCAPTCHA to ensure you're not a bot. <span className="text-blue-500 underline font-normal">Learn more.</span>
         </p>
       </div>
     </div>

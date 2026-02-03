@@ -166,12 +166,35 @@ export const usersInTheAc = [
 export const LoginPageBgImg =
   "https://assets.nflxext.com/ffe/siteui/vlv3/258d0f77-2241-4282-b613-8354a7675d1a/web/IN-en-20250721-TRIFECTA-perspective_cadc8408-df6e-4313-a05d-daa9dcac139f_large.jpg";
 
-export const Img_CDN_Url = "https://image.tmdb.org/t/p/w500"; 
+export const Img_CDN_Url = "https://image.tmdb.org/t/p/w500";
 
 export const LanguagesForGenre = [
-  'Arabic','Bengali','Cantonese','Dutch','English','French','German','Hebrew','Hindi','Indonesian','Italian','Korean','Mandarin Chinese','Malayalam','Persian (Farsi)','Portuguese','Polish','Russian','Spanish','Swedish','Telugu','Tamil','Thai','Turkish','Tagalog (Filipino)','Urdu'
-]
+  "Arabic",
+  "Bengali",
+  "Cantonese",
+  "Dutch",
+  "English",
+  "French",
+  "German",
+  "Hebrew",
+  "Hindi",
+  "Indonesian",
+  "Italian",
+  "Korean",
+  "Mandarin Chinese",
+  "Malayalam",
+  "Persian (Farsi)",
+  "Portuguese",
+  "Polish",
+  "Russian",
+  "Spanish",
+  "Swedish",
+  "Telugu",
+  "Tamil",
+  "Thai",
+  "Turkish",
+  "Tagalog (Filipino)",
+  "Urdu",
+];
 
-export const Genre = [
-  'Action','Comedy','Drama','Horror','Romance','Science Fiction'
-]
+export const Genre = ["Action", "Comedy", "Drama", "Horror", "Romance", "Science Fiction"];

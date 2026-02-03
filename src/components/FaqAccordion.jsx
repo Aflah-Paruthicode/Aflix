@@ -12,21 +12,11 @@ const FaqAccordion = (props) => {
         onClick={handleFaqToggle}
       >
         {faq.question}
-      <p  className="absolute top-6 right-6 text-3xl max-md:text-2xl">
-        {faqToggle ? "⨉" : "＋"}
-      </p>
+        <p className="absolute top-6 right-6 text-3xl max-md:text-2xl">{faqToggle ? "⨉" : "＋"}</p>
       </h1>
 
-      {faqToggle && (
-        <p className="px-[23px] p-6 text-[25px] leading-8 max-md:text-[18px] max-md:leading-6">
-          {faq.answer}
-        </p>
-      )}
-      {faqToggle && faq.answerline && (
-        <p className="px-[23px] p-6 leading-8 text-[25px] max-md:text-[18px] max-md:leading-6">
-          {faq.answerline}
-        </p>
-      )}
+      {faqToggle && <p className="px-[23px] p-6 text-[25px] leading-8 max-md:text-[18px] max-md:leading-6">{faq.answer}</p>}
+      {faqToggle && faq.answerline && <p className="px-[23px] p-6 leading-8 text-[25px] max-md:text-[18px] max-md:leading-6">{faq.answerline}</p>}
     </div>
   );
 };

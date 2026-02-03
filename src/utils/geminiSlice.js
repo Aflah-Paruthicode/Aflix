@@ -16,7 +16,6 @@ const geminiSlice = createSlice({
   },
 });
 
-export const { changeGeminiSearchState, addGeminiMovieResults } =
-  geminiSlice.actions;
+export const { changeGeminiSearchState, addGeminiMovieResults } = geminiSlice.actions;
 
 export default geminiSlice.reducer;

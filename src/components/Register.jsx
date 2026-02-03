@@ -21,30 +21,17 @@ const Register = () => {
   }, []);
 
   function isValidCredentials() {
-    let message = checkInputs(
-      emailRef.current.value,
-      passwordRef.current.value,
-      nameRef.current.value
-    );
+    let message = checkInputs(emailRef.current.value, passwordRef.current.value, nameRef.current.value);
     setErr(message);
 
     if (message) return;
 
-    if (
-      nameRef.current.value.trim() == "" ||
-      nameRef.current.value.length < 2 ||
-      nameRef.current.value.length > 10
-    ) {
-
+    if (nameRef.current.value.trim() == "" || nameRef.current.value.length < 2 || nameRef.current.value.length > 10) {
       setErr("Enter Proper Name");
-      return 
+      return;
     }
 
-    createUserWithEmailAndPassword(
-      auth,
-      emailRef.current.value,
-      passwordRef.current.value
-    )
+    createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
       .then((userData) => {
         const user = userData.user;
         updateProfile(user, {
@@ -52,9 +39,7 @@ const Register = () => {
         })
           .then(() => {
             const { uid, email, displayName } = auth.currentUser;
-            dispatch(
-              addUser({ uid: uid, email: email, displayName: displayName })
-            );
+            dispatch(addUser({ uid: uid, email: email, displayName: displayName }));
           })
           .catch((error) => {
             setErr(error.message);
@@ -72,37 +57,12 @@ const Register = () => {
       </section>
       <section className="w-full h-[77vh] max-md:h-[85vh] flex justify-center items-center max-md:px-4 pt-28">
         <div className="w-1/3 h-1/3 m-auto max-md:w-full max-md:h-auto">
-          <h1 className="text-3xl font-bold mb-7 max-md:text-xl">
-            Registration
-          </h1>
-          <input
-            type="text"
-            className="border w-full p-3 my-2 rounded-sm"
-            ref={nameRef}
-            placeholder="name..."
-          />
-          <input
-            type="email"
-            className="border w-full p-3 my-2 rounded-sm"
-            ref={emailRef}
-            placeholder="email..."
-          />
-          <input
-            type="password"
-            ref={passwordRef}
-            className="border w-full p-3 my-2 rounded-sm"
-            placeholder="password"
-          />
-          {err && (
-            <p className="text-red-700 text-base py-3 font-semibold max-md:font-normal">
-              {err}
-            </p>
-          )}
-          <input
-            type="submit"
-            onClick={isValidCredentials}
-            className="bg-red-600 py-4 my-3 px-8 font-semibold text-white rounded-sm w-full"
-          />
+          <h1 className="text-3xl font-bold mb-7 max-md:text-xl">Registration</h1>
+          <input type="text" className="border w-full p-3 my-2 rounded-sm" ref={nameRef} placeholder="name..." />
+          <input type="email" className="border w-full p-3 my-2 rounded-sm" ref={emailRef} placeholder="email..." />
+          <input type="password" ref={passwordRef} className="border w-full p-3 my-2 rounded-sm" placeholder="password" />
+          {err && <p className="text-red-700 text-base py-3 font-semibold max-md:font-normal">{err}</p>}
+          <input type="submit" onClick={isValidCredentials} className="bg-red-600 py-4 my-3 px-8 font-semibold text-white rounded-sm w-full" />
         </div>
       </section>
       <section>

@@ -10,22 +10,22 @@ const Body = () => {
     {
       path: "/",
       element: <SignUp />,
-      errorElement : <Error />
+      errorElement: <Error />,
     },
     {
       path: "/login",
       element: <Login />,
-      errorElement : <Error />
+      errorElement: <Error />,
     },
     {
       path: "/browse",
       element: <Browse />,
-      errorElement : <Error />
+      errorElement: <Error />,
     },
     {
       path: "/register/:email",
       element: <Register />,
-      errorElement : <Error />
+      errorElement: <Error />,
     },
   ]);
 
