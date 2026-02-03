@@ -10,12 +10,8 @@ import GeminiSearch from "./GeminiSearch";
 import Footer from "./Footer";
 
 const Browse = () => {
-  const showGeminiSearch = useSelector(
-    (store) => store.gemini.isGeminiSearchEnable
-  );
-  const nowPlayingMovies = useSelector(
-    (store) => store.gemini.nowPlayingMovies
-  );
+  const showGeminiSearch = useSelector((store) => store.gemini.isGeminiSearchEnable);
+  const nowPlayingMovies = useSelector((store) => store.gemini.nowPlayingMovies);
   const popularMovies = useSelector((store) => store.gemini.popularMovies);
   const topRatedMovies = useSelector((store) => store.gemini.topRatedMovies);
   const upcomingMovies = useSelector((store) => store.gemini.upcomingMovies);

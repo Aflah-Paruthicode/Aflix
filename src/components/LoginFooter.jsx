@@ -5,9 +5,7 @@ const LoginFooter = (props) => {
   return (
     <div
       className={` ${
-        from == "register"
-          ? "bg-[#eaeaeafa] text-[#1a1a1a]"
-          : "bg-[#1a1a1a] text-[#c6c5c5fa]"
+        from == "register" ? "bg-[#eaeaeafa] text-[#1a1a1a]" : "bg-[#1a1a1a] text-[#c6c5c5fa]"
       } w-full h-60 flex justify-center items-center max-md:flex-wrap`}
     >
       <div className="w-1/2 max-md:flex max-md:flex-wrap max-md:justify-between max-md:items-center max-md:w-[90%]">

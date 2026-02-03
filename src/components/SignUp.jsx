@@ -1,12 +1,7 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import {
-  FAQ,
-  LoginPageBgImg,
-  reasonsToJoin,
-  trendMovies,
-} from "../utils/constants";
+import { FAQ, LoginPageBgImg, reasonsToJoin, trendMovies } from "../utils/constants";
 import { useState } from "react";
 import FaqAccordion from "./FaqAccordion";
 import Header from "./Header";
@@ -21,9 +16,7 @@ const SignUp = () => {
   const isLineHaveToBreak = window.innerWidth > 768 ? true : false;
 
   const handleSignup = () => {
-    const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-      email
-    );
+    const isEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(email);
     if (!isEmail) {
       setErr("Email Not Valid");
       return;
@@ -47,27 +40,16 @@ const SignUp = () => {
       </div>
 
       <div className=" brightness-[35%] h-[90vh] w-full">
-        <img
-          className="w-full h-[99vh] object-cover object-[2%_19%]"
-          src={LoginPageBgImg}
-          alt=""
-        />
+        <img className="w-full h-[99vh] object-cover object-[2%_19%]" src={LoginPageBgImg} alt="" />
       </div>
 
       <div className="absolute top-[338px] max-md:top-[150px] max-md:px-9 left-0 right-0 mx-auto h-full text-white text-center bg-gradient-to-t from-black">
         <h1 className="font-black text-[63px] max-md:text-3xl max-md:leading-9 font-[unset] leading-20 mb-5 max-md:mb-2">
           Unlimited movies, TV {isLineHaveToBreak && <br />} shows and more
         </h1>
-        <p className="text-[22px] font-semibold max-md:text-[16px] mb-7 max-md:mb-3">
-          Starts at ₹149. Cancel at any time.
-        </p>
-        <p className="font-normal mb-3 max-md:mb-[14px] text-[16.5px]">
-          Ready to watch? Enter your email to create or restart your membership.
-        </p>
-        <form
-          onSubmit={(e) => e.preventDefault()}
-          className="flex justify-center items-center max-md:flex-wrap gap-2"
-        >
+        <p className="text-[22px] font-semibold max-md:text-[16px] mb-7 max-md:mb-3">Starts at ₹149. Cancel at any time.</p>
+        <p className="font-normal mb-3 max-md:mb-[14px] text-[16.5px]">Ready to watch? Enter your email to create or restart your membership.</p>
+        <form onSubmit={(e) => e.preventDefault()} className="flex justify-center items-center max-md:flex-wrap gap-2">
           <input
             className="bg-[#1a1a1ab6] py-2 max-md:py-0 px-8 rounded-sm border w-[450px] h-[55px] max-md:h-[45px] text-[#888888] font-semibold"
             placeholder="Enter your email"
@@ -82,9 +64,7 @@ const SignUp = () => {
             type="submit"
             onClick={handleSignup}
           />
-          {err && (
-            <p className="absolute text-red-600 max-md:left-10 m-2 ">{err}</p>
-          )}
+          {err && <p className="absolute text-red-600 max-md:left-10 m-2 ">{err}</p>}
         </form>
       </div>
 
@@ -99,9 +79,7 @@ const SignUp = () => {
             after:top-[4.5px] after:rounded-t-[50%] after:mx-auto after:h-[12.60rem] max-md:after:h-[6.50rem] max-md:after:top-[4px] after:object-cover after:z-10`}
       >
         <div className="absolute top-[58px] max-md:top-[45px] left-[350px] max-md:left-4 z-20">
-          <h1 className="text-white text-[32px] font-bold z-[9999] max-md:text-xl">
-            Trending Now
-          </h1>
+          <h1 className="text-white text-[32px] font-bold z-[9999] max-md:text-xl">Trending Now</h1>
         </div>
       </div>
 
@@ -123,9 +101,7 @@ const SignUp = () => {
       </div>
       <div className="flex justify-center bg-black h-[430px] max-md:h-auto ">
         <div className="w-[1200px]  text-white bg-black">
-          <h1 className="text-white text-[32px] font-bold mb-3 max-md:text-xl max-md:pl-4">
-            More reasons to join
-          </h1>
+          <h1 className="text-white text-[32px] font-bold mb-3 max-md:text-xl max-md:pl-4">More reasons to join</h1>
           <div className="flex gap-4 max-md:gap-2 max-md:flex max-md:flex-col max-md:px-4">
             {reasonsToJoin.map((reason, indx) => {
               return (
@@ -133,18 +109,10 @@ const SignUp = () => {
                   key={indx}
                   className=" relative w-1/4 max-md:w-full h-80 max-md:h-auto rounded-2xl py-9 px-6 bg-gradient-to-br from-[#653fad6c] to-[#1e001636]"
                 >
-                  <h1 className="font-bold text-2xl mb-5 max-md:mb-2 max-md:text-xl">
-                    {reason.header}
-                  </h1>
-                  <p className=" font-medium leading-5 text-[#ffffffb3]">
-                    {reason.desc}
-                  </p>
+                  <h1 className="font-bold text-2xl mb-5 max-md:mb-2 max-md:text-xl">{reason.header}</h1>
+                  <p className=" font-medium leading-5 text-[#ffffffb3]">{reason.desc}</p>
                   <div className="max-md:p-5">
-                    <img
-                      className="absolute bottom-5 right-4 max-md:bottom-2 max-md:w-16"
-                      src={reason.img}
-                      alt=""
-                    />
+                    <img className="absolute bottom-5 right-4 max-md:bottom-2 max-md:w-16" src={reason.img} alt="" />
                   </div>
                 </div>
               );
@@ -154,9 +122,7 @@ const SignUp = () => {
       </div>
       <div className="flex justify-center bg-black">
         <div className="w-[1200px]  text-white bg-black">
-          <h1 className="text-white text-[32px] font-bold mb-3 mt-2 max-md:text-xl max-md:mt-10 max-md:pl-4">
-            Frequently Asked Questions
-          </h1>
+          <h1 className="text-white text-[32px] font-bold mb-3 mt-2 max-md:text-xl max-md:mt-10 max-md:pl-4">Frequently Asked Questions</h1>
           <div className="w-full max-md:px-5">
             {FAQ.map((faq, index) => {
               return (
@@ -195,9 +161,7 @@ const SignUp = () => {
             type="submit"
             onClick={handleSignup}
           />
-          {err && (
-            <p className="absolute text-red-600 max-md:left-10 m-2 ">{err}</p>
-          )}
+          {err && <p className="absolute text-red-600 max-md:left-10 m-2 ">{err}</p>}
         </form>
       </div>
       <Footer />
