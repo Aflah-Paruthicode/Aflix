@@ -14,8 +14,8 @@ in this app there is searching is kinda different, not by movie titles. i integr
 ### Tech Stack
 - **Frontend:** react.js
 - **Styling:** tailwind Css
-- **API (Data):** tmdb api
-- **API (AI):** google gemini ai
+- **Data:** tmdb api
+- **Ai Api:** google gemini ai
 
 ### Preview
 <img width="1919" height="987" alt="Screenshot 2026-02-03 210919" src="https://github.com/user-attachments/assets/c2240c59-9a3f-4c3d-abc5-6069ea1d278d" />
@@ -69,5 +69,5 @@ This project was my first deep dive into connecting AI with a frontend. I learne
 
 ---
 
-Developed with love, by Aflah 🫰
+Developed with love, by Aflah 🫰 <br/>
 if this repo felt useful! consider giving it a star 😉
